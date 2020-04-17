@@ -1,12 +1,31 @@
 {
   "version": "1.0",
-  "defaultProvider": "jsdelivr",
-  "defaultDestination": "wwwroot/libman/",
+  "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "jquery@3.4.1",
-      "files": [ "dist/core.js", "dist/core.min.js", "dist/jquery.min.js" ]
+      "provider": "cdnjs",
+      "library": "twitter-bootstrap@4.4.0",
+      "destination": "wwwroot/lib/twitter-bootstrap/",
+      "files": [
+        "css/bootstrap.css",
+        "js/bootstrap.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "popper.js@2.3.3",
+      "destination": "wwwroot/lib/popper.js/",
+      "files": [
+        "umd/popper.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery@3.5.0",
+      "destination": "wwwroot/lib/jquery/",
+      "files": [
+        "jquery.js"
+      ]
     }
-
   ]
 }
