@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "defaultProvider": "jsdelivr",
+  "defaultDestination": "wwwroot/libman/",
+  "libraries": [
+    {
+      "library": "jquery@3.4.1",
+      "files": [ "dist/core.js", "dist/core.min.js", "dist/jquery.min.js" ]
+    }
+
+  ]
+}
