@@ -24,6 +24,17 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    msbuildArgs: >
+      /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true 
+      /p:PackageLocation="$(build.artifactStagingDirectory)/package" 
+      /bl:"$(Build.ArtifactStagingDirectory)/build_logs/msbuild.binlog"
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: $(Build.ArtifactStagingDirectory)/build_logs
+    ArtifactName: build_logs
+    ArtifactType: Container
+  displayName: Publish build_logs artifacts
+  condition: succeededOrFailed()
